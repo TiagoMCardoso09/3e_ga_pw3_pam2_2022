@@ -11,28 +11,26 @@
 
     <div class="carousel-inner">
 
-      <div *ngFor="let item of carousel; let i = index">
-        <div class="carousel-item active">
-          <img [src]=" item.imagem " class="bd-placeholder-img img-carousel" width="100%">
 
-          <div class="container">
-            <div class="carousel-caption text-start text-black">
-              <h1>{{ item.titulo }}</h1>
-              <p>{{ item.subtitulo }}</p>
-              <p><a class="btn btn-lg btn-secondary" [href]=" item.saibamais ">Saiba mais &raquo;</a></p>
-            </div>
+      <div *ngFor=" let item of carousel;" class="carousel-item {{ item.class }}">
+        <img [src]=" item.imagem " class="bd-placeholder-img img-carousel" width="100%">
+
+        <div class="container">
+          <div class="carousel-caption text-center text-black mb-lg-4 bg-espelho">
+            <h1>{{ item.titulo }}</h1>
+            <p>{{ item.subtitulo }}</p>
+            <p><a class="btn btn-lg btn-secondary" [href]=" item.saibamais ">Saiba mais &raquo;</a></p>
           </div>
         </div>
       </div>
 
+
     </div>
 
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
 
@@ -40,108 +38,45 @@
 
   <div class="container marketing">
 
-    <!-- Tentar fazer o slider -->
+    <carousel class="pb-2">
 
-    <div class="row">
-      <div class="col-md-4 justify-content-center text-center">
-        <img class="bd-placeholder-img rounded-2 border-card" width="100%" height="140"
-          src="https://www.r6esportsbr.com/_next/image/?url=%2Fassets%2Fchamps%2F2%2Fwhite%2Fpt%2Fvert.svg&w=128&q=75"
-          focusable="false">
-
-        <h2>Invitational 2022</h2>
-
-        <p><a class="btn btn-secondary fw-bold" href="https://www.r6esportsbr.com/home/2/">Acompanhar &raquo;</a></p>
+      <div *ngFor="let item of cards;" class="carousel-cell">
+        <a href="{{ item.acompanhar }}">
+          <img src="{{ item.imagem }}" width="100%" class="img-carousel" focusable="false">
+        </a>
       </div>
-      <div class="col-md-4 justify-content-center text-center">
-        <img class="bd-placeholder-img rounded-2 border-card" width="100%" height="140"
-          src="https://www.r6esportsbr.com/_next/image/?url=%2Fassets%2Fchamps%2F18%2Fwhite%2Fen%2Fvert.svg&w=128&q=75"
-          focusable="false">
 
-        <h2>Invitational 2022</h2>
+    </carousel>
 
-        <p><a class="btn btn-secondary fw-bold" href="https://www.r6esportsbr.com/en/home/18/">Acompanhar &raquo;</a>
-        </p>
+    <div *ngFor="let item of newshome;">
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette pb-3">
+
+        <ng-template [ngIf]="item.indice%2==0">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">{{ item.titulo }}</h2>
+            <p class="lead">{{ item.subtitulo }}</p>
+          </div>
+        </ng-template>
+
+        <ng-template [ngIf]="item.indice%2!=0">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">{{ item.titulo }}</h2>
+            <p class="lead">{{ item.subtitulo }}</p>
+          </div>
+        </ng-template>
+
+        <div class="col-md-5">
+          <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+            height="500" src="{{ item.imagem }}" role="img">
+        </div>
+
       </div>
-      <div class="col-md-4 justify-content-center text-center">
-        <img class="bd-placeholder-img rounded-2 border-card" width="100%" height="140"
-          src="https://www.r6esportsbr.com/_next/image/?url=%2Fassets%2Fchamps%2F8%2Fwhite%2Fen%2Fvert.svg&w=128&q=75"
-          focusable="false">
 
-        <h2>Invitational 2022</h2>
-
-        <p><a class="btn btn-secondary fw-bold" href="https://www.r6esportsbr.com/en/home/8/">Acompanhar &raquo;</a></p>
-      </div>
     </div>
 
-    <hr class="featurette-divider">
+  </div>
 
-    <div class="row featurette">
-      <div class="col-md-7">
-        <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span>
-        </h2>
-        <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.
-        </p>
-      </div>
-      <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-          height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-          preserveAspectRatio="xMidYMid slice" focusable="false">
-          <title>Placeholder</title>
-          <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-        </svg>
-
-      </div>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-      <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-        <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this
-          layout would work with some actual real-world content in place.</p>
-      </div>
-      <div class="col-md-5 order-md-1">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-          height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-          preserveAspectRatio="xMidYMid slice" focusable="false">
-          <title>Placeholder</title>
-          <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-        </svg>
-
-      </div>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-      <div class="col-md-7">
-        <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-        <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really
-          intended to be actually read, simply here to give you a better view of what this would look like with some
-          actual content. Your content.</p>
-      </div>
-      <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-          height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-          preserveAspectRatio="xMidYMid slice" focusable="false">
-          <title>Placeholder</title>
-          <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-        </svg>
-
-      </div>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <!-- /END THE FEATURETTES -->
-
-  </div><!-- /.container -->
-
-
-  <!-- FOOTER -->
-  <!-- <footer class="container">
-    <p class="float-end"><a href="#">Back to top</a></p>
-    <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-  </footer> -->
 </main>

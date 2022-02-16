@@ -1,4 +1,4 @@
-.bd-placeholder-img {
+.bd-placeholder-img{
   font-size: 1.125rem;
   text-anchor: middle;
   -webkit-user-select: none;
@@ -10,6 +10,10 @@
   border-width: 10px;
 
   border-color: #777;
+}
+
+.bg-espelho{
+  background-color: rgba(220, 220, 220, 0.9);
 }
 
 .img-carousel{

@@ -8,13 +8,6 @@
   background-attachment: fixed;
 }
 
-.bg-espelho {
-  border-radius: 20px;
-  background: rgba(128, 128, 128, 0.9);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
 .spans {
   background-color: rgb(32, 32, 32);
   color: white !important;

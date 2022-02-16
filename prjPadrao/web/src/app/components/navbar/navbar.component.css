@@ -1,3 +1,7 @@
-.bg-nav{
-  background-color: #0e0e0e;
+.navbar{
+  height: 75px;
+}
+
+a{
+  font-size: 20px;
 }

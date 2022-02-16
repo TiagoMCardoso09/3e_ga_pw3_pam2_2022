@@ -1,1 +1,29 @@
-<p>novidades works!</p>
+<div class="container marketing">
+  <div *ngFor="let item of news;">
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette pb-3">
+
+      <ng-template [ngIf]="item.indice%2==0">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">{{ item.titulo }}</h2>
+          <p class="lead">{{ item.subtitulo }}</p>
+        </div>
+      </ng-template>
+
+      <ng-template [ngIf]="item.indice%2!=0">
+        <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading">{{ item.titulo }}</h2>
+          <p class="lead">{{ item.subtitulo }}</p>
+        </div>
+      </ng-template>
+
+      <div class="col-md-5">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+          height="500" src="{{ item.imagem }}" role="img">
+      </div>
+
+    </div>
+  </div>
+</div>
