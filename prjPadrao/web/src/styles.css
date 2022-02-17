@@ -15,6 +15,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
   background-color: #0e0e0e;
 }
 
+.bg-page{
+  background-color: #808080;
+}
+
+
 .bg-espelho{
   border-radius: 20px;
   background: rgba(128, 128, 128, 0.9);
