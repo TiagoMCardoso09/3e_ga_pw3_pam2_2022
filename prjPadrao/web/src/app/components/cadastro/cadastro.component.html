@@ -8,29 +8,29 @@
 
         <div class="input-group mb-3">
           <span class="input-group-text spans fs-5">Username</span>
-          <input type="text" class="form-control fs-5" placeholder="Informe seu Username" required>
+          <input type="text" class="form-control fs-5" placeholder="Informe seu Username" required name="username" [(ngModel)]="username">
         </div>
 
         <div class="input-group mb-3">
-          <input type="email" class="form-control fs-5" placeholder="Insira um e-mail válido" required>
+          <input type="email" class="form-control fs-5" placeholder="Insira um e-mail válido" required name="email" [(ngModel)]="email">
           <span class="input-group-text spans fs-5">@domínio.com</span>
         </div>
 
         <div class="input-group mb-3">
-          <input type="password" class="form-control fs-5" placeholder="Insira uma senha para sua conta" required>
+          <input type="password" class="form-control fs-5" placeholder="Insira uma senha para sua conta" required name="senha" [(ngModel)]="senha">
         </div>
 
         <div class="input-group mb-3">
           <span class="input-group-text spans fs-5">Insira sua data de nascimento:</span>
-          <input type="date" class="form-control fs-5" id="dataDeNascimento" required>
+          <input type="date" class="form-control fs-5" id="dataDeNascimento" required name="dataNascimento" [(ngModel)]="dataNascimento">
         </div>
 
-        <div class="row" style="height: 50px;">
+        <div class="row row-btns">
           <div class="col-6">
             <button class="btn btn-danger w-100 h-100 fs-4 fw-bold" type="reset" role="button">Resetar</button>
           </div>
           <div class="col-6">
-            <button class="btn btn-success w-100 h-100 fs-4 fw-bold" type="submit" role="button">Cadastre-se</button>
+            <button class="btn btn-success w-100 h-100 fs-4 fw-bold" type="submit" role="button" (click)="salvarCadastro()">Cadastre-se</button>
           </div>
         </div>
 

@@ -1,45 +1,105 @@
-const express = require('express');//constante para permitir criar o servidor para pode importar os modulos
-const server = express(); // costante de conexao com o servidor 
-const bp = require('body-parser'); // permite receber dados externos"informaçoes"
-const mysql = require('mysql2'); // permite estabelecer a conexao com o banco
-const banco = mysql.createPool({  // configurar banco de dados 
+const express = require('express');
+const server = express();
+
+const bp = require('body-parser');
+
+const corsOptions = {
+    origin: 'http://localhost:4200/',
+    optionsSuccessStatus: 200
+};
+
+const cors = require('cors');
+server.use(cors(corsOptions));
+
+const mysql = require('mysql2');
+const banco = mysql.createPool({
     host: "localhost",
-    database: "2e_ga_210922",
+    database: "3e_ga_PW3_2022",
     user: "root",
-    password: "Jp162636"
+    password: ""
 });
 
-server.use(bp.urlencoded({ extended: false}));
-server.use(bp.json()); // permite arquivos json
+server.use(bp.urlencoded({ extended: false }));
+server.use(bp.json());
 
+server.get("/conexao", (req, res) => {
+  banco.getConnection((erro, con) => {
+    if (erro) {
+      return res.status(500).send({
+        mensagem: 'Erro na conexão com o banco',
+        erro: erro
+      });
+    }
 
+    return res.status(200).send({
+      mensagem: 'Conexão bem sucedida!'
+    });
+  });
+});
 
-//estabelecer conexao
-server.get("/conectar", (req, res)=>{
-    banco.getConnection(
-        (erro,con) =>{
-            if(erro){
-                return res.status(500).send({
-                    mensagem: "Erro ao conectar como banco", 
-                    erro: erro
-                })
-            }
+server.post('/cadastro', (req, res) => {
+  const u = req.body;
+  const SQL = `INSERT INTO usuario (username, email, senha, dataNascimento) VALUES ('${u.username}', '${u.email}', '${u.senha}', '${u.dataNascimento}')`;
 
-            return res.status(200).send({
-                mensagem:"Conexão estabecida com sucesso!"
-            });
-        }
-    )
+  banco.getConnection((erro, con) => {
+    if (erro) {
+      return res.status(500).send({
+        mensagem: 'Erro na conexão',
+        detalhes: erro
+      });
+    }
+
+    con.query(SQL, (erro, result) => {
+      con.release();
+
+      if (erro) {
+        return res.status(500).send({
+          mensagem: 'Erro no SQL',
+          detalhes: erro,
+          sql: SQL
+        });
+      }
+
+      return res.status(200).send({
+        mensagem: 'Cadastro realizado com sucesso!'
+      });
+    });
+  });
+});
+
+server.listen(3000, () => {
+  console.log('O servidor está funcionando!');
 });
 
 
-// cadastar veicuos 
-server.post("/veiculo", (req, res)=>{
-    const v = req.body
-    //template string 
-    const SQL = `INSERT INTO veiculos (marca, modelo, proprietario, preco_venda) VALUE ('${v.marca}', '${v.modelo}', '${v.prop}', ${v.pv})`
+/* const express = require('express');
+const server = express();
+const bp = require('body-parser');
 
-    banco.getConnection((erro,con)=>{
+const corsOptions = {
+    origin: 'http://localhost:4200/',
+    optionsSuccessStatus: 200
+}
+const cors = require('cors');
+server.use(cors(corsOptions));
+
+const mysql = require('mysql2');
+const banco = mysql.createPool({
+    host: "localhost",
+    database: "3e_ga_PW3_2022",
+    user: "root",
+    password: ""
+});
+
+server.use(bp.urlencoded({ extended: false }));
+server.use(bp.json());
+
+server.post("/cadastro", (req, res) => {
+    const cad = req.body
+    //template string
+    const SQL = `INSERT INTO cadastroUsuario (username, email, senha, dataNascimento) VALUES ('${u.username}', '${u.email}', '${u.senha}', '${u.dataNascimento}')`;
+
+    banco.getConnection((erro, con) => {
         if(erro){
             return res.status(500).send({
                 mensagem: 'Erro de conexão',
@@ -47,7 +107,7 @@ server.post("/veiculo", (req, res)=>{
             });
         }
 
-        con.query(SQL, (erro, result) =>{
+        con.query(SQL, (erro, result) => {
             con.release();
 
             if(erro){
@@ -59,16 +119,13 @@ server.post("/veiculo", (req, res)=>{
             }
 
             return res.status(200).send({
-                mensagem: 'Cadastro realizado com sucessp!'
-            })
-        })
-    })
+                mensagem: 'Cadastro realizado com sucesso!'
+            });
+        });
+    });
 });
 
-// texte de execução 
-server.listen(3000,() =>{
-    console.log('Servidor funcionado!');
+server.listen(3000, () => {
+    console.log('Servidor funcionando!');
 });
-
-
-
+ */

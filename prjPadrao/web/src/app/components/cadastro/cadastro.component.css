@@ -23,3 +23,7 @@ input {
   color: white !important;
   border: 0px;
 }
+
+.row-btns{
+  height: 50px;
+}
