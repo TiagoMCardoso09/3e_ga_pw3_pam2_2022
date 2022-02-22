@@ -13,6 +13,7 @@ import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
+import { LiveComponent } from './components/live/live.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LoginComponent } from './components/login/login.component';
     CadastroComponent,
     FooterComponent,
     LoginComponent,
+    LiveComponent,
   ],
   imports: [
     BrowserModule,

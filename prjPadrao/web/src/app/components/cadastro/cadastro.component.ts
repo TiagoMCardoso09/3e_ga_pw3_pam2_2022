@@ -8,10 +8,10 @@ import { ApicadastroService } from 'src/app/services/apicadastro/apicadastro.ser
 })
 export class CadastroComponent implements OnInit {
 
-  username = ''
-  email = ''
-  senha = ''
-  dataNascimento = ''
+  username = 'asd'
+  email = 'asd@hoa.cin'
+  senha = '123'
+  dataNascimento = '12/12/2012'
 
 
   constructor(

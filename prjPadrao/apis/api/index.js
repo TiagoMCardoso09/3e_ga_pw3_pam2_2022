@@ -38,8 +38,8 @@ server.get("/conexao", (req, res) => {
 });
 
 server.post('/cadastro', (req, res) => {
-  const u = req.body;
-  const SQL = `INSERT INTO usuario (username, email, senha, dataNascimento) VALUES ('${u.username}', '${u.email}', '${u.senha}', '${u.dataNascimento}')`;
+  const c = req.body;
+  const SQL = `INSERT INTO usuario (username, email, senha, dataNascimento) VALUES ('${c.username}', '${c.email}', '${c.senha}', '${c.dataNascimento}')`;
 
   banco.getConnection((erro, con) => {
     if (erro) {

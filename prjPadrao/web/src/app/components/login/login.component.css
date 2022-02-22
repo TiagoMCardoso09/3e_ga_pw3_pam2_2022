@@ -24,6 +24,16 @@ input {
   border: 0px;
 }
 
+.form-control:focus {
+  background-color: black;
+  color: white !important;
+  box-shadow: none;
+}
+
 .row-btns{
   height: 50px;
+}
+
+.btn:focus {
+  box-shadow: none;
 }

@@ -11,20 +11,20 @@
     <div class="row featurette pb-3">
 
       <ng-template [ngIf]="item.indice%2==0">
-        <div class="col-md-7">
+        <div class="col-lg-7 my-auto">
           <h2 class="featurette-heading">{{ item.titulo }}</h2>
           <p class="lead">{{ item.subtitulo }}</p>
         </div>
       </ng-template>
 
       <ng-template [ngIf]="item.indice%2!=0">
-        <div class="col-md-7 order-md-2">
+        <div class="col-lg-7 text-end my-auto order-md-2">
           <h2 class="featurette-heading">{{ item.titulo }}</h2>
           <p class="lead">{{ item.subtitulo }}</p>
         </div>
       </ng-template>
 
-      <div class="col-md-5">
+      <div class="col-lg-5 text-center">
         <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
           height="500" src="{{ item.imagem }}" role="img">
       </div>

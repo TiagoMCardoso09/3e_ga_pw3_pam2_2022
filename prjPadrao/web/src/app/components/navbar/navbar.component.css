@@ -5,3 +5,8 @@
 a{
   font-size: 20px;
 }
+
+@media(max-width: 1530px){
+	.texto, .pointing{display:none;}
+	.texto:first-child{display: block;}
+}
