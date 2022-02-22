@@ -3,11 +3,8 @@
 }
 
 @media(max-width: 1000px){
-	.li-paginas, .pointing{display:none;}
-	.li-paginas:first-child{display: block;}
-}
-
-@media(min-width: 1000px){
 	.drop-paginas, .pointing{display:none;}
 	.drop-paginas:first-child{display: block;}
+  .w-15{width: 50%;}
+  .text-footer{width: 60%;}
 }

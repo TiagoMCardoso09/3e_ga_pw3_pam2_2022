@@ -1,22 +1,40 @@
 <div *ngFor="let item of videos" class="col-10 mx-auto py-3">
 
-  <ng-template >
+  <ng-template [ngIf]="item.indice != 0">
     <hr class="featurette-divider">
   </ng-template>
 
   <div class="row featurette py-3 text-center">
 
-    <div class="col-12">
+    <div class="col-11 mx-auto">
       <h1 class="fst-italic featurette-heading">{{ item.titulo }}</h1>
     </div>
 
   </div>
 
-  <div class="row">
+  <div class="row pb-4">
 
-    <div class="col-12 mx-auto">
-      <!-- <iframe width="100%" height="744" src="{{item.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-3"></iframe> -->
+    <div class="col-10 mx-auto">
+      <iframe width="100%" height="744" src="{{ item.video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-3"></iframe>
     </div>
 
   </div>
+</div>
+
+<hr class="featurette-divider">
+
+<div class="row featurette py-3 text-center">
+
+  <div class="col-11 mx-auto">
+    <h1 class="fst-italic featurette-heading">A GRANDE NOVIDADE DA DEMON VEIL: CONHEÇA MELHOR AZAMI E AS BARREIRAS KIBA I Rainbow Six Siege</h1>
+  </div>
+
+</div>
+
+<div class="row pb-4">
+
+  <div class="col-10 mx-auto ">
+    <iframe width="100%" height="744" src="https://www.youtube.com/embed/fWQNIKEf1z0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
 </div>
