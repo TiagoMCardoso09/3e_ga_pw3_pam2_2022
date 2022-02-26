@@ -1,0 +1,13 @@
+<ion-slides>
+
+  <ion-slide *ngFor="let item of slides">
+
+    <div class="slide">
+      <img [src]="item.imagem" />
+      <h3>{{ item.titulo }}</h3>
+      <p class="ion-text-italic ion-no-padding">{{ item.subtitulo }}</p>
+    </div>
+
+  </ion-slide>
+
+</ion-slides>
